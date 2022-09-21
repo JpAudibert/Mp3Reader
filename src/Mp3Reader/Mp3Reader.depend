@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1663729136 source:c:\users\user\documents\www\mp3reader\src\mp3reader\reader.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
