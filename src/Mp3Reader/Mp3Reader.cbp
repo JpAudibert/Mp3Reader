@@ -31,12 +31,6 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Mp3Reader.cbp" />
-		<Unit filename="Mp3Reader.depend" />
-		<Unit filename="Mp3Reader.layout" />
-		<Unit filename="a" />
-		<Unit filename="breathe-ft-jem-cooke.mp3" />
-		<Unit filename="media_info.txt" />
 		<Unit filename="reader.c">
 			<Option compilerVar="CC" />
 		</Unit>

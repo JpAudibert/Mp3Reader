@@ -16,6 +16,13 @@ struct mp3Tag
 int fileNameLength = 1024;
 int mp3TagSize = 128;
 
+char* substring(char* buffer, int startingPoint, int finishingPoint)
+{
+    char* str = malloc(strlen(buffer));
+
+    return strncpy(str, buffer + startingPoint, finishingPoint+1);
+}
+
 int main()
 {
     struct mp3Tag* tagStruct = {0};
@@ -49,7 +56,16 @@ int main()
 //get the data
     if(fgets(buffer, mp3TagSize, mp3File) != NULL)
     {
-        printf("%s", buffer);
+        printf("\n\nTag: %0.3s\n",substring(buffer, 0, 2));
+        printf("Title: %0.30s\n",substring(buffer, 3, 32));
+        printf("Artist: %0.30s\n",substring(buffer, 33, 62));
+        printf("Album: %0.30s\n",substring(buffer, 63, 92));
+        printf("Year: %0.4s\n",substring(buffer, 93, 96));
+        printf("Comment: %0.30s\n",substring(buffer, 97, 124));
+        printf("Track: %d\n",substring(buffer, 125, 125));
+        printf("Track Number: %d\n",substring(buffer, 126, 126));
+        printf("Genre: %d\n",substring(buffer, 127, 127));
+
     }
     else{
         printf("Error reading the ID3V1 tag.");
@@ -57,14 +73,5 @@ int main()
     }
 
     fclose(mp3File);
-
-    printf("\n\nTag: %0.3s\n",buffer[2]);
-    printf("Title: %0.30s\n",buffer[32]);
-    printf("Artist: %0.30s\n",buffer[92]);
-    printf("Album: %0.30s\n",buffer[96]);
-    printf("Year: %0.4s\n",buffer[125]);
-    printf("Comment: %0.30s\n",buffer[126]);
-    printf("Genre: %d\n",buffer[127]);
-
     return 0;
 }
